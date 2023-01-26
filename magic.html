@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic 🪄</title>
+</head>
+<body>
+    <div>Phone:</div>
+    <input type="text" name="phone" id="phone">
+
+    <div>ID:</div>
+    <input type="text" name="id" id="id">
+</body>
+<script>
+    function encode(phone) {
+        return parseInt(phone, 10).toString(16);
+    }
+
+    function decode(id) {
+        return parseInt(id, 16)
+    }
+
+    let phone = document.querySelector('#phone');
+    let id = document.querySelector('#id');
+
+    phone.addEventListener("keyup", (event) => {
+        id.value = encode(event.target.value);
+    });
+
+    id.addEventListener("keyup", (event) => {
+        phone.value = decode(event.target.value);
+    });
+
+</script>
+</html>
